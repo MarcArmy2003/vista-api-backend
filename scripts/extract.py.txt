@@ -1,0 +1,46 @@
+import json, os, zipfile
+from adobe.pdfservices.operation.auth.credentials import Credentials
+from adobe.pdfservices.operation.execution_context import ExecutionContext
+from adobe.pdfservices.operation.pdfops.extract_pdf_operation import ExtractPDFOperation
+from adobe.pdfservices.operation.io.file_ref import FileRef
+from adobe.pdfservices.operation.pdfops.options.extractpdf.extract_pdf_options import ExtractPDFOptions
+from adobe.pdfservices.operation.pdfops.options.extractpdf.extract_element_type import ExtractElementType
+
+input_pdf = "extractPdfInput.pdf"
+output_zip = "extracted_abr.zip"
+
+if os.path.exists(output_zip):
+    os.remove(output_zip)
+
+# Load credentials
+credentials = Credentials.service_account_credentials_builder()\
+    .from_file("pdfservices-api-credentials.json")\
+    .build()
+
+execution_context = ExecutionContext.create(credentials)
+extract_operation = ExtractPDFOperation.create_new()
+
+# Set the PDF to extract
+source = FileRef.create_from_local_file(input_pdf)
+extract_operation.set_input(source)
+
+# Define what to extract (text + tables)
+options = ExtractPDFOptions.builder()\
+    .with_elements_to_extract([ExtractElementType.TEXT, ExtractElementType.TABLES])\
+    .build()
+extract_operation.set_options(options)
+
+# Execute and save zip
+result = extract_operation.execute(execution_context)
+result.save_as(output_zip)
+
+# Unzip and load JSON
+with zipfile.ZipFile(output_zip, 'r') as archive:
+    with archive.open('structuredData.json') as json_file:
+        data = json.load(json_file)
+
+# Print headers from ABR
+print("\n📑 H1 HEADINGS:")
+for el in data["elements"]:
+    if el.get("Path", "").endswith("/H1"):
+        print("-", el.get("Text"))

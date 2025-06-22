@@ -1,0 +1,705 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Open VA Data API",
+    "version": "1.0.0",
+    "description": "This OpenAPI 3.1.0 spec includes 123 unique datasets from the Department of Veterans Affairs Open Data Catalog. All endpoints are GET requests to VA public datasets served via Socrata APIs."
+  },
+  "servers": [
+    {
+      "url": "https://www.data.va.gov/resource",
+      "description": "VA Open Data Socrata API"
+    }
+  ],
+  "paths": {
+    "/br8p-iseu.json": {
+      "get": {
+        "operationId": "getPensionRecipientsByStateFY2023",
+        "summary": "VA Pension Recipients as a Percentage of Veteran Population by State for FYs 2019, 2020, 2021, and 2023",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/uafb-ne25.json": {
+      "get": {
+        "operationId": "getNCVASFacilitiesDataFY2021",
+        "summary": "VA Facilities Aggregated and Ordered by Type for FY2021",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tmnn-2iqd.json": {
+      "get": {
+        "operationId": "getPensionPeriodOfServiceFY2023",
+        "summary": "Male and Female Pensioner by Period of Service FY2023",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ,
+    "/qhqa-74yq.json": {
+      "get": {
+        "operationId": "getGDXFY2021",
+        "summary": "Geographic Distribution of VA Expenditures (GDX) FY2021",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/5b4p-6aq2.json": {
+      "get": {
+        "operationId": "getHealthBenefits",
+        "summary": "Health Benefits Summary Data",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ufuk-sphg.json": {
+      "get": {
+        "operationId": "getKoreanWarVeteransByAgeFY2020",
+        "summary": "Korean War Era Veterans by Age Group FY2020",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/7s2y-gs9a.json": {
+      "get": {
+        "operationId": "getKoreanWarVeteransByYear",
+        "summary": "Korean War Era Veterans by Year (2000–2040)",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/qsrq-sfv8.json": {
+      "get": {
+        "operationId": "getMultipleWarVeterans",
+        "summary": "Multiple War Veterans Count and Total",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ,
+    "/pkxd-6kb8.json": {
+      "get": {
+        "operationId": "getStateAgePercentages",
+        "summary": "NCVAS State Summaries - Age Percentages",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbx2-yhvw.json": {
+      "get": {
+        "operationId": "getStateEducationPercentages",
+        "summary": "NCVAS State Summaries - Education Percentages",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/5xun-beu8.json": {
+      "get": {
+        "operationId": "getStateIncomePercentages",
+        "summary": "NCVAS State Summaries - Income Percentages",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ri6s-s648.json": {
+      "get": {
+        "operationId": "getStatePeriodOfServicePercentages",
+        "summary": "NCVAS State Summaries - Period of Service Percentages",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/va4a-ptj8.json": {
+      "get": {
+        "operationId": "getBenefitsUseByProgramAndSexFY2023",
+        "summary": "Percent of Veterans who Use VA Benefits by Program and Sex, FY2023",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ,
+    "/aftv-s6aw.json": {
+      "get": {
+        "operationId": "getPeriodOfServiceSep2022",
+        "summary": "Veterans by period of service as of 9/30/2022",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ve97-jdsp.json": {
+      "get": {
+        "operationId": "getPopulationDemographicsETL",
+        "summary": "Population Demographics ETL",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/esdj-yhpu.json": {
+      "get": {
+        "operationId": "getMinorityVeteranProjections",
+        "summary": "Projected Population Growth of Minority Veterans, 2014-2043",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pgjq-abwt.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableMale1980s",
+        "summary": "Table 1 - U. S. Veterans Life Table for Male 1980–1989",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/g2jn-5rx5.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableFemale1980s",
+        "summary": "Table 2 - U. S. Veterans Life Table for Female 1980–1989",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ,
+    "/dukd-ufj2.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableMale1990s",
+        "summary": "Table 3 - U. S. Veterans Life Table for Male 1990–1999",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/8uia-zhs2.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableFemale1990s",
+        "summary": "Table 4 - U. S. Veterans Life Table for Female 1990–1999",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/aijs-q9hs.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableMale2000s",
+        "summary": "Table 5 - U. S. Veterans Life Table for Male 2000–2009",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/78jd-jt77.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableFemale2000s",
+        "summary": "Table 6 - U. S. Veterans Life Table for Female 2000–2009",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dsam-p4tf.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableMale2010s",
+        "summary": "Table 7 - U. S. Veterans Life Table for Male 2010–2019",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    ,
+    "/nhmj-k6j5.json": {
+      "get": {
+        "operationId": "getVeteransLifeTableFemale2010s",
+        "summary": "Table 8 - U. S. Veterans Life Table for Female 2010–2019",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/xykt-5dut.json": {
+      "get": {
+        "operationId": "getTakeUpRateByRaceEthnicityAndSex",
+        "summary": "Take-up Rate by Race/Ethnicity and Sex",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/unhx-5tdv.json": {
+      "get": {
+        "operationId": "getVAFacilitiesFY2024",
+        "summary": "VA Facilities Aggregated and Ordered FY2024",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/n849-uby9.json": {
+      "get": {
+        "operationId": "getPensionRecipientsPercentByState",
+        "summary": "VA Pension Recipients as a Percentage of Veteran Population by State FY2019–FY2023",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ibas-uwj3.json": {
+      "get": {
+        "operationId": "getCompensationExpendituresFY2024",
+        "summary": "Veteran Compensation Expenditures By State and Age Group FY2024",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sbtk-kfnm.json": {
+      "get": {
+        "operationId": "getPensionExpendituresFY2024",
+        "summary": "Veteran Pension Expenditures By State and Age Group FY2024",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ahvc-pqda.json": {
+      "get": {
+        "operationId": "getVeteransClassOfWork",
+        "summary": "Veterans Class of Work",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mqrh-hcwr.json": {
+      "get": {
+        "operationId": "getVeteransClassOfWorkGov",
+        "summary": "Veterans Class of Work in Government",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ey9g-uxvm.json": {
+      "get": {
+        "operationId": "getVeteransHomeLoanGuarantyParticipation",
+        "summary": "Veterans who participated in VA Home Loan Guaranty Program",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/y94k-kvst.json": {
+      "get": {
+        "operationId": "getVeteransVocRehabParticipation",
+        "summary": "Veterans who participated in Vocational Rehabilitation & Employment Programs",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/4z73-eybg.json": {
+      "get": {
+        "operationId": "getVeteransUsingVABenefits",
+        "summary": "Veterans who used a VA Benefit",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hw7z-nyrk.json": {
+      "get": {
+        "operationId": "getVeteransUsingDisabilityCompensation",
+        "summary": "Veterans who used Disability Compensation Benefits",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ytxn-wfc3.json": {
+      "get": {
+        "operationId": "getVeteransUsingGIBill",
+        "summary": "Veterans who used GI Bill Education Benefits",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

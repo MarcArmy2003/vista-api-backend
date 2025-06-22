@@ -1,0 +1,27 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VA Benefits & Expenditures API",
+    "version": "1.0.0",
+    "description": "Endpoints related to VA benefits participation and expenditure statistics across different programs and groups."
+  },
+  "servers": [
+    {
+      "url": "https://www.data.va.gov/resource",
+      "description": "VA Open Data Socrata API"
+    }
+  ],
+  "paths": {
+    "/br8p-iseu.json": { "get": { "operationId": "getPensionRecipientsByStateFY2023", "summary": "VA Pension Recipients as a Percentage of Veteran Population by State for FYs 2019, 2020, 2021, and 2023", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/va4a-ptj8.json": { "get": { "operationId": "getBenefitsUseByProgramAndSexFY2023", "summary": "Percent of Veterans who Use VA Benefits by Program and Sex, FY2023", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/ibas-uwj3.json": { "get": { "operationId": "getCompensationExpendituresFY2024", "summary": "Veteran Compensation Expenditures By State and Age Group FY2024", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/sbtk-kfnm.json": { "get": { "operationId": "getPensionExpendituresFY2024", "summary": "Veteran Pension Expenditures By State and Age Group FY2024", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/ahvc-pqda.json": { "get": { "operationId": "getVeteransClassOfWork", "summary": "Veterans Class of Work", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/mqrh-hcwr.json": { "get": { "operationId": "getVeteransClassOfWorkGov", "summary": "Veterans Class of Work in Government", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/ey9g-uxvm.json": { "get": { "operationId": "getVeteransHomeLoanGuarantyParticipation", "summary": "Veterans who participated in VA Home Loan Guaranty Program", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/y94k-kvst.json": { "get": { "operationId": "getVeteransVocRehabParticipation", "summary": "Veterans who participated in Vocational Rehabilitation & Employment Programs", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/4z73-eybg.json": { "get": { "operationId": "getVeteransUsingVABenefits", "summary": "Veterans who used a VA Benefit", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/hw7z-nyrk.json": { "get": { "operationId": "getVeteransUsingDisabilityCompensation", "summary": "Veterans who used Disability Compensation Benefits", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/ytxn-wfc3.json": { "get": { "operationId": "getVeteransUsingGIBill", "summary": "Veterans who used GI Bill Education Benefits", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } }
+  }
+}

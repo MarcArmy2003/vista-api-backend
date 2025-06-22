@@ -1,0 +1,57 @@
+# ===========================
+# Python Environment & Caches
+# ===========================
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# ====================
+# Build & Distribution
+# ====================
+build/
+dist/
+*.egg-info/
+
+# =====================
+# System & Editor Files
+# =====================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.bak
+*.swp
+
+# ======================
+# Jupyter Notebook Files
+# ======================
+.ipynb_checkpoints/
+
+# ====================
+# Environment Variables
+# ====================
+.env
+
+# ==========================
+# Credential & JSON Artifacts
+# ==========================
+*.json
+
+# ============================
+# Data & Output File Exclusion
+# ============================
+data/VISTA_Repository/
+src/vista-api-backend/data/*
+!src/vista-api-backend/data/.gitkeep
+
+# ====================
+# Miscellaneous Caches
+# ====================
+*.tar.gz
+*.tzdata
+dateutil/zoneinfo/

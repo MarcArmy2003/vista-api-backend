@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: VISTA Backend Data API
+  version: 1.0.0
+  description: API for accessing VA and Census data from Google Sheets for the VISTA Custom GPT.
+servers:
+  # This is the public URL that Cloudflare Tunnel provided.
+  # KEEP BOTH YOUR FLASK APP AND CLOUDFLARE TUNNEL TERMINALS OPEN AND RUNNING.
+  - url: https://letter-mario-lexington-sunny.trycloudflare.com
+    description: Public URL via Cloudflare Tunnel
+paths:
+  /query_api_paths:
+    get:
+      operationId: queryApiPaths
+      summary: Query specific VA API paths by category or name from the 'API Name and Path' sheet.
+      description: |
+        Retrieves a list of VA API paths and their associated details from the 'API Name and Path'
+        Google Sheet. Results can be filtered by a specific categorization or by an API name.
+        If no filters are provided, all available API paths will be returned.
+      parameters:
+        - name: category
+          in: query
+          description: Filter by API categorization (e.g., 'Demographics', 'Benefits & Claims').
+                       The search is case-insensitive.
+          required: false
+          schema:
+            type: string
+          examples:
+            demographics:
+              value: Demographics
+              summary: Example for Demographics category
+            health:
+              value: Health
+              summary: Example for Health category
+        - name: api_name
+          in: query
+          description: Filter by API name or dataset table name (e.g., 'VetPop', 'COVID-19').
+                       The search is case-insensitive.
+          required: false
+          schema:
+            type: string
+          examples:
+            vetpop:
+              value: VetPop
+              summary: Example for VetPop dataset
+            covid:
+              value: COVID-19
+              summary: Example for COVID-19 related APIs
+      responses:
+        '200':
+          description: A list of matching API paths and their details.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Categorization: { type: string, description: "The broad category of the API (e.g., Demographics, Benefits & Claims)." }
+                    Source: { type: string, description: "The primary source of the data (e.g., VA, Census Bureau)." }
+                    Dataset / Table Name: { type: string, description: "The specific name of the dataset or table." }
+                    API Path: { type: string, description: "The relative API endpoint path." }
+                    operationId: { type: string, description: "Unique identifier for the API operation, used internally." }
+                    Description / Summary: { type: string, description: "A brief description or summary of what the API provides." }
+              examples:
+                success_response:
+                  value:
+                    - Categorization: Demographics
+                      Source: VA
+                      Dataset / Table Name: VetPop
+                      API Path: /vetpop_data
+                      operationId: getVetPopData
+                      Description / Summary: Provides veteran population statistics.
+                    - Categorization: Benefits & Claims
+                      Source: VA
+                      Dataset / Table Name: Disability Claims
+                      API Path: /disability_claims
+                      operationId: getDisabilityClaims
+                      Description / Summary: Information on veteran disability claims.
+        '404':
+          description: No matching API paths found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string, example: "No matching API paths found for the given criteria." }
+
+  /query_census_apis_full_list:
+    get:
+      operationId: queryCensusApisFullList
+      summary: Query U.S. Census Bureau API datasets by name or year from the 'Census Bureau APIs - Full List' sheet.
+      description: |
+        Retrieves a list of U.S. Census Bureau API datasets from the 'Census Bureau APIs - Full List'
+        Google Sheet. Results can be filtered by dataset name or by a specific year found
+        within the API Base URL. If no filters are provided, all available Census API datasets
+        will be returned.
+      parameters:
+        - name: dataset_name
+          in: query
+          description: Filter by Census dataset name (e.g., 'cbp' for County Business Patterns, 'acs' for American Community Survey). The search is case-insensitive.
+          required: false
+          schema:
+            type: string
+          examples:
+            cbp:
+              value: cbp
+              summary: Example for County Business Patterns dataset
+            acs:
+              value: acs
+              summary: Example for American Community Survey dataset
+        - name: year
+          in: query
+          description: Filter by year (e.g., '1986', '2020'). This searches within the 'API Base URL' field. The search is case-insensitive.
+          required: false
+          schema:
+            type: string
+          examples:
+            year_1986:
+              value: 1986
+              summary: Example for datasets from 1986
+            year_2020:
+              value: 2020
+              summary: Example for datasets from 2020
+      responses:
+        '200':
+          description: A list of matching Census API datasets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Dataset Name: { type: string, description: "The official name of the Census dataset." }
+                    Dataset Type: { type: string, description: "The type of data, often indicating frequency or scope (e.g., Annual, Survey)." }
+                    Geography List: { type: string, description: "Available geographic levels for the dataset (e.g., state, county, tract)." }
+                    Variable List: { type: string, description: "Key variables or data points available in the dataset." }
+                    Group List: { type: string, description: "Categorizations of variables within the dataset." }
+                    SortList: { type: string, description: "Options for sorting data results." }
+                    Examples: { type: string, description: "Example API calls or use cases for the dataset." }
+                    Developer Documentation: { type: string, description: "Link to the official Census Bureau developer documentation for this dataset." }
+                    API Base URL: { type: string, description: "The base URL for accessing this Census API." }
+              examples:
+                success_response:
+                  value:
+                    - Dataset Name: County Business Patterns
+                      Dataset Type: Annual
+                      Geography List: States, Counties
+                      Variable List: Employment, Payroll
+                      Group List: NAICS
+                      SortList: Name
+                      Examples: "https://api.census.gov/data/2021/cbp/..."
+                      Developer Documentation: "https://www.census.gov/data/developers/data-sets/cbp-county-business-patterns.html"
+                      API Base URL: "https://api.census.gov/data/2021/cbp"
+                    - Dataset Name: American Community Survey 5-Year Estimates
+                      Dataset Type: Survey
+                      Geography List: All levels
+                      Variable List: Population, Income, Poverty
+                      Group List: Demographics
+                      SortList: Code
+                      Examples: "https://api.census.gov/data/2022/acs/acs5/..."
+                      Developer Documentation: "https://www.census.gov/programs-surveys/acs/data/data-api.html"
+                      API Base URL: "https://api.census.gov/data/2022/acs/acs5"
+        '404':
+          description: No matching Census APIs found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string, example: "No matching Census APIs found for the given criteria." }

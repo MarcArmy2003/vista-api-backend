@@ -1,0 +1,24 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VA Facilities & War-Era Data API",
+    "version": "1.0.0",
+    "description": "Endpoints focused on VA facilities, geographic distribution of expenditures, and data about veterans of specific wars."
+  },
+  "servers": [
+    {
+      "url": "https://www.data.va.gov/resource",
+      "description": "VA Open Data Socrata API"
+    }
+  ],
+  "paths": {
+    "/uafb-ne25.json": { "get": { "operationId": "getNCVASFacilitiesDataFY2021", "summary": "VA Facilities Aggregated and Ordered by Type for FY2021", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/unhx-5tdv.json": { "get": { "operationId": "getVAFacilitiesFY2024", "summary": "VA Facilities Aggregated and Ordered FY2024", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/qhqa-74yq.json": { "get": { "operationId": "getGDXFY2021", "summary": "Geographic Distribution of VA Expenditures (GDX) FY2021", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/5b4p-6aq2.json": { "get": { "operationId": "getHealthBenefits", "summary": "Health Benefits Summary Data", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/ufuk-sphg.json": { "get": { "operationId": "getKoreanWarVeteransByAgeFY2020", "summary": "Korean War Era Veterans by Age Group FY2020", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/7s2y-gs9a.json": { "get": { "operationId": "getKoreanWarVeteransByYear", "summary": "Korean War Era Veterans by Year (2000–2040)", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/qsrq-sfv8.json": { "get": { "operationId": "getMultipleWarVeterans", "summary": "Multiple War Veterans Count and Total", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } },
+    "/n849-uby9.json": { "get": { "operationId": "getPensionRecipientsPercentByState", "summary": "VA Pension Recipients as a Percentage of Veteran Population by State FY2019–FY2023", "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } } } }
+  }
+}

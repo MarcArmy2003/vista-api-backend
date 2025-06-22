@@ -1,0 +1,143 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Open VA Data APIs",
+    "description": "Grouped access to 123 public VA open datasets via Socrata API. Each endpoint represents a major category of VA data such as Benefits, Demographics, or Healthcare.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.data.va.gov",
+      "description": "VA Open Data API"
+    }
+  ],
+  "paths": {
+    "/demographics": {
+      "get": {
+        "operationId": "getDemographicsData",
+        "summary": "Retrieve Demographic datasets",
+        "description": "Returns a list of dataset URLs for population projections, race, age, sex, period of service, and life tables.",
+        "parameters": [
+          {
+            "name": "dataset",
+            "in": "query",
+            "description": "Optional dataset path to retrieve directly.",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Demographics dataset URLs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "string", "format": "uri" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/benefits": {
+      "get": {
+        "operationId": "getBenefitsData",
+        "summary": "Retrieve Benefits & Claims datasets",
+        "description": "Returns dataset URLs on disability, pension, compensation, and usage.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Benefits data URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/healthcare": {
+      "get": {
+        "operationId": "getHealthcareData",
+        "summary": "Retrieve VHA Healthcare datasets",
+        "description": "VHA patient counts, diagnoses, treatments, and disparities data.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Healthcare data URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/education": {
+      "get": {
+        "operationId": "getEducationData",
+        "summary": "Retrieve Education Benefits datasets",
+        "description": "GI Bill and other VA education usage datasets.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Education data URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/employment": {
+      "get": {
+        "operationId": "getEmploymentData",
+        "summary": "Retrieve Veteran employment and rehab datasets",
+        "description": "Employment class, Vocational Rehab usage by Veterans.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Employment dataset URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/facilities": {
+      "get": {
+        "operationId": "getFacilitiesData",
+        "summary": "Retrieve VA facility and infrastructure datasets",
+        "description": "VA medical centers, clinics, cemeteries, ZIPs, crosswalks.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Facility and site URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/surveys": {
+      "get": {
+        "operationId": "getSurveyData",
+        "summary": "Retrieve VA Workforce and Patient Survey datasets",
+        "description": "All Employee Survey, FEVS, patient feedback key indicators.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Survey dataset URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/identity": {
+      "get": {
+        "operationId": "getIdentityRecords",
+        "summary": "Identity and Veteran military service record integration",
+        "description": "eMIS Military Record Access (internal only; not public).",
+        "responses": { "200": { "description": "Internal identity APIs." } }
+      }
+    },
+    "/equity": {
+      "get": {
+        "operationId": "getEquityAndDisparityData",
+        "summary": "Health equity and sociodemographic disparity datasets",
+        "description": "Health equity reports, stratified data by race, sex, geography, illness.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Equity dataset URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/memorials": {
+      "get": {
+        "operationId": "getMemorialsData",
+        "summary": "Cemeteries and gravesite location datasets",
+        "description": "NCA gravesite locator, cemetery info, acreage, VA national cemeteries.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Cemetery and NCA dataset URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/summaries": {
+      "get": {
+        "operationId": "getStateSummaryVisuals",
+        "summary": "State summary charts and visuals datasets",
+        "description": "Percent charts for state-level data on POS, income, education, race, gender.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Summary chart dataset URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    },
+    "/gdx": {
+      "get": {
+        "operationId": "getGdxExpendituresData",
+        "summary": "Retrieve GDX (Geographic Distribution of VA Expenditures)",
+        "description": "Annual GDX by state, county, congressional district with breakdown by benefit type.",
+        "parameters": [{ "name": "dataset", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "GDX data URLs.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "string", "format": "uri" } } } } } }
+      }
+    }
+  }
+}

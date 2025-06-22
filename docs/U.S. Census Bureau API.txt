@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: U.S. Census Bureau API
+  description: >
+    Access public data from the U.S. Census Bureau including American Community Survey (ACS) 
+    and Decennial Census statistics relevant to Veterans.
+  version: 1.0.0
+servers:
+  - url: https://api.census.gov
+    description: U.S. Census Bureau main API server
+paths:
+  /data/2021/acs/acs1:
+    get:
+      operationId: getACS2021
+      summary: Get ACS 2021 1-year estimates
+      parameters:
+        - name: get
+          in: query
+          description: Comma-separated list of variables to retrieve
+          required: true
+          schema:
+            type: string
+        - name: for
+          in: query
+          description: Geographic area (e.g. "state:*" for all states)
+          required: true
+          schema:
+            type: string
+        - name: in
+          in: query
+          description: Optional parent geography (e.g. "county:*")
+          required: false
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: Your Census API key
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A successful response with ACS 2021 data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: string
+  /data/2020/dec/pl:
+    get:
+      operationId: getDecennial2020
+      summary: Get 2020 Decennial Census P.L. 94-171 Redistricting Data
+      parameters:
+        - name: get
+          in: query
+          description: Comma-separated list of variables to retrieve
+          required: true
+          schema:
+            type: string
+        - name: for
+          in: query
+          description: Geographic area (e.g. "state:*" for all states)
+          required: true
+          schema:
+            type: string
+        - name: in
+          in: query
+          description: Optional parent geography (e.g. "county:*")
+          required: false
+          schema:
+            type: string
+        - name: key
+          in: query
+          description: Your Census API key
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A successful response with 2020 Decennial Census data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: string
