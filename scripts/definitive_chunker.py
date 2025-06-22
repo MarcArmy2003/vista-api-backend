@@ -37,7 +37,7 @@ def process_excel_to_txt(input_uri, output_uri):
     excel_blobs = [blob for blob in blobs if blob.name.endswith(".xlsx") or blob.name.endswith(".xls")]
 
     if not excel_blobs:
-        print(f⚠️ No Excel files found in {input_uri}")
+        print(f"WARNING: No Excel files found in {input_uri}")
         return
 
     for blob in excel_blobs:
@@ -70,7 +70,7 @@ def process_excel_to_txt(input_uri, output_uri):
         os.remove(temp_input_path)
         print(f"  -> Cleaned up temporary file {temp_input_path}")
         
-    print(f"✅ Processed Excel files from {input_uri} to {output_uri}")
+    print(f"SUCCESS: Processed Excel files from {input_uri} to {output_uri}")
 
 def clean_output_folder(output_uri):
     """Cleans up .txt files from a GCS output URI."""
@@ -85,14 +85,14 @@ def clean_output_folder(output_uri):
     txt_blobs = [blob for blob in blobs_to_delete if blob.name.endswith(".txt")]
 
     if not txt_blobs:
-        print(f"⚠️ No .txt files found in {output_uri} to clean.")
+        print(f"WARNING: No .txt files found in {output_uri} to clean.")
         return
 
     for blob in txt_blobs:
         blob.delete() # Use blob.delete() to remove from GCS
         print(f"  -> Deleted {blob.name} from {output_bucket_name}")
     
-    print(f"🧹 Cleaned up all .txt files from {output_uri}")
+    print(f" Cleaned up all .txt files from {output_uri}")
 
 def main():
     parser = argparse.ArgumentParser(description="Process Excel files and optionally clean output.")
