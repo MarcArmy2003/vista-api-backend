@@ -6,5 +6,6 @@ google-auth-oauthlib
 google-api-python-client
 gunicorn
 google-cloud-storage
-xlrd # For .xls files
-openpyxl # For .xlsx files
+xlrd
+openpyxl
+PyMuPDF # Add this line for PDF processing
