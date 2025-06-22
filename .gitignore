@@ -48,6 +48,10 @@ Thumbs.db
 data/VISTA_Repository/
 src/vista-api-backend/data/*
 !src/vista-api-backend/data/.gitkeep
+*.xls
+*.xlsx
+*.csv
+*.pdf
 
 # ====================
 # Miscellaneous Caches
