@@ -1,4 +1,10 @@
-```markdown
+
+# My VISTA API Backend Project
+This is the main README for the VISTA API Backend.
+It contains code for the Google Cloud build.
+
+----
+
 # ⚙️ VISTA API Backend
 
 The **VISTA API Backend** is the core processing engine of the [Veteran Analytics](https://github.com/MarcArmy2003/veteran-analytics) project. It transforms structured Excel and CSV data into clean, chunked `.txt` files for AI analysis and provides a scalable foundation for RESTful data services.
@@ -37,3 +43,7 @@ vista-api-backend/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+=======
+# vista-api-backend
+Core development repository for Veteran Analytics – AI-powered tools and data advocacy for veterans.
+----
